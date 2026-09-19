@@ -252,10 +252,8 @@
       <div class="prose">
         <h2>Helios; one of Shopify's retail launch partners</h2>
         <p>
-          Helios Technology Solutions supports data migration for businesses looking to move from a legacy POS system to
-          Shopify. They support the point of sale, inventory, product catalogues, and the
-          integrations that come with POS transfer. The computing side of the company is mostly
-          applied software engineering. It;s a small team, and I was one of two co-op students on it. The work was fast paced and client facing, and I learned a lot about what it means to ship code that is used by real people.
+Helios Technology Solutions helps retailers move from legacy point-of-sale systems to Shopify. The company supports data migration, product catalogues, inventory, Shopify POS setup, and the integrations required for a successful launch. As one of two co-op students on a small team, I learned how to deliver software efficiently, communicate with merchants, and contribute to systems that people rely on every day.
+Moving the data was only the first step. The real goal was to give each merchant a Shopify setup they could trust on opening day.
         </p>
         <p>
         </p>
@@ -277,18 +275,14 @@
       <p class="kicker">Goals and learning outcomes</p>
       <h2 class="prose">What I set out to get better at, and where I actually landed</h2>
       <p class="prose" style="margin-top:1.2rem;color:#28405A">
-        I wrote these four goals in my first week, before I knew what the work would look like.
-        Three of them survived contact with the job. One turned out to be harder than I planned for.
+I set these four goals during my first week, before I fully understood what the role would involve. By the end of the term, I had achieved three and made meaningful progress on the fourth.
       </p>
 
       <div class="goals">
         <div class="goal">
           <h3>Work in real production code</h3>
           <p>
-            I wanted to stop building everything from an empty file. Reading someone else's
-            codebase, following its conventions, and changing it without breaking what was already
-            working is a different skill than starting fresh, and it is the one I had the least
-            practice with.
+I wanted experience contributing to an established codebase instead of always starting from an empty file. Learning to understand existing conventions, make targeted changes, and preserve working functionality became an important part of the term.
             <span class="tools">Python · Pandas · GraphQL</span>
           </p>
           <span class="status met">Met</span>
@@ -297,9 +291,7 @@
         <div class="goal">
           <h3>Diagnose problems I had not seen before</h3>
           <p>
-            School problems come with the failure mode attached. I wanted to get comfortable with
-            bugs where nobody knows the cause yet, including the part where you check your own
-            assumptions before blaming the system.
+Academic exercises usually define the problem clearly. At work, I wanted to become comfortable investigating issues when the cause was unknown. This meant gathering evidence, testing my assumptions, and tracing problems across data and systems before deciding on a solution.
             <span class="tools">Debugging · Testing · Data inspection</span>
           </p>
           <span class="status met">Met</span>
@@ -308,9 +300,7 @@
         <div class="goal">
           <h3>Explain technical work to non-technical people</h3>
           <p>
-            This was the goal I was least sure about. It turned into the most useful one. Client
-            calls forced me to drop jargon, check that the person actually followed me, and end
-            with a clear next step rather than a clever explanation.
+I expected this to be one of the most challenging goals, but it became one of the most valuable. Client calls taught me to avoid jargon, confirm that my explanation was clear, and always leave the client with a practical next step.
             <span class="tools">Client support · Training · Documentation</span>
           </p>
           <span class="status met">Met</span>
@@ -319,9 +309,7 @@
         <div class="goal">
           <h3>Design software, not just make it work</h3>
           <p>
-            I got much better at delivering a working fix. I am still learning to step back and
-            ask whether the structure around that fix is right, and to write tests before the bug
-            arrives rather than after. This is the goal I am carrying into my next term.
+I became much better at delivering reliable fixes, but I am still learning to step back and evaluate the design around them. I also want to build stronger testing habits so potential problems are caught before they reach users. I will carry this goal into my next work term.
             <span class="tools">Architecture · Testing discipline</span>
           </p>
           <span class="status part">Partly met</span>
@@ -334,47 +322,36 @@
     <p class="kicker">The work</p>
     <h2 class="prose">Mostly migration and verification, some building</h2>
     <p class="prose" style="margin-top:1.2rem;color:#28405A">
-      If I had to weigh the term by hours, most of it was not writing new features. It was moving
-      product data between systems and then proving that the move had actually worked.
+Most of my time was spent moving product data between systems and verifying that every part of the migration had worked correctly. I also supported store launches and contributed to an existing Shopify application.
     </p>
 
     <div class="job">
       <article>
         <h3>Migrating and verifying catalogue data</h3>
         <p>
-          This was my main project. I used Python and Pandas to reshape large product exports,
-          GraphQL to write the results into Shopify, and AI models to help catch what a manual pass
-          would miss: mismatched categories, near-duplicate SKUs, prices that had drifted from the
-          source of truth. The transform was the easy half. Proving a few thousand rows had landed
-          correctly, and flagging the ones that hadn't, was the part that actually took the term.
+This was my main responsibility. I used Python and Pandas to clean and reshape large product exports, GraphQL to load the transformed data into Shopify, and AI-assisted checks to identify issues that could be missed during manual review. These included mismatched categories, near-duplicate SKUs, and prices that did not match the source system. Transforming the data was only part of the challenge. I also had to verify that thousands of records had migrated correctly and identify the exceptions that required attention.
+The experience showed me that data migration is not simply copying fields from one system to another. It requires understanding business rules that may be undocumented, inconsistent, or known only by the people who use the system every day.
         </p>
         <p>
-          The lesson was that migration is not copying fields. It is discovering, one broken row at
-          a time, which business rules were living in someone's head instead of in the data.
+          The lesson was that migration is not copying fields, but understaning what the data actually means, and how it is used in the real world.
         </p>
       </article>
       <article>
         <h3>Getting stores ready to open</h3>
         <p>
-          I answered client questions, traced setup issues, and walked people through Shopify POS
-          workflows before launch. A lot of these were not bugs. They were a gap between what the
-          system did and what the person expected it to do.
+I answered merchant questions, investigated setup issues, and guided clients through Shopify POS workflows before launch. Many concerns were not software bugs. Instead, they came from differences between how the system worked and how the merchant expected it to work.
         </p>
         <p>
-          Sitting in that gap regularly is the fastest way I have found to learn what usable
-          actually means.
+      Supporting clients directly helped me understand that usable software depends on clear expectations, effective communication, and workflows that make sense to the people using them.
         </p>
       </article>
       <article>
         <h3>Contributing to an existing Shopify app</h3>
         <p>
-          Alongside the migration work, I spent some time inside an app the team had already
-          built, using Shopify's Admin GraphQL API. Most of that time went into reading code rather
-          than writing it: finding the pattern the codebase already used, then matching it.
+In addition to the migration work, I contributed to an existing Shopify application that used the Admin GraphQL API. Much of this work involved understanding the codebase, identifying the patterns already in use, and making changes that followed those conventions.
         </p>
         <p>
-          It was a smaller slice of the term, but the first time I cared whether my change would
-          confuse the next person who opened the file.
+Although this represented a smaller portion of my term, it taught me to consider maintainability and whether my code would be clear to the next developer who worked on it.
         </p>
       </article>
     </div>
@@ -421,9 +398,7 @@
         <text x="300" y="398" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8A5A00">handle has no source column, it has to be generated and checked for collisions</text>
       </svg>
       <figcaption>
-        A mapping sketch of the kind I drew before writing any transform code. The interesting
-        columns are never the ones that line up. They are the field with no source, the one that
-        splits into two, and the one carrying a value the destination will refuse.
+This is an example of the mapping sketches I created before writing transformation code. The fields that required the most attention were those without a direct source, those created from multiple source values, and those containing data that Shopify would not accept.
       </figcaption>
     </figure>
 
@@ -431,9 +406,7 @@
       <img src="googlereviewigot.png" alt="A five-star Google review for Helios Technology Solutions, thanking Shelly by name for helping move a retail store from an outdated system to Shopify." />
       <div class="prose">
         <p>
-          This review was so nice to receive. It showed me my work was making a real impact for
-          the people on the other end of it, and I loved getting to connect directly with
-          merchants during the term.
+       Receiving this review was especially meaningful because it showed that my work had a direct and positive effect on a merchant’s launch. It also reinforced how much I valued communicating with clients and helping them feel confident during a major system change.
         </p>
       </div>
     </div>
@@ -449,27 +422,21 @@
           <span>01</span>
           <h3>I look at the data before I write the code</h3>
           <p>
-            My instinct used to be to start typing. Now I open the file first, sort it, count the
-            nulls, and look for the rows that break the shape I assumed. Most of my worst bugs on
-            this term were assumptions I could have checked in two minutes.
+Before this term, my instinct was to start coding immediately. Now I begin by inspecting the data, sorting it, counting missing values, checking formats, and finding records that do not match my assumptions. Many of the most difficult bugs I encountered could have been prevented by taking a few minutes to understand the data first.
           </p>
         </article>
         <article>
           <span>02</span>
           <h3>I explain things in the listener's terms</h3>
           <p>
-            On a client call, being right is not the goal. Being understood is. I learned to name
-            things the way the store owner names them, check that I was actually followed, and
-            finish with the one thing they need to do next.
+    On a client call, being technically correct is not enough. The explanation also has to be clear and useful. I learned to use the client’s terminology, confirm their understanding, and finish each conversation with a specific next step.
           </p>
         </article>
         <article>
           <span>03</span>
           <h3>I treat tools as one system, not separate subjects</h3>
           <p>
-            An API, a dataframe, an AI model, and a browser console stopped feeling like four
-            unrelated courses. Moving between them to chase a single problem is now normal, and
-            that confidence is probably the most transferable thing I am taking with me.
+ Python scripts, dataframes, APIs, AI tools, and browser developer tools no longer feel like separate subjects. I became comfortable moving between them to investigate one problem from several angles. That adaptability is one of the most transferable skills I gained.
           </p>
         </article>
       </div>
@@ -482,22 +449,17 @@
       <h2>If you remember one thing</h2>
       <div class="prose">
         <p>
-          This term connected what I learned at Uni to the real world. I came in able to write code that
-          passed a test case and left thinking about the person on the other side of it: what their
-          data actually looks like, what they will assume, and what breaks for them if I do not check my work.
+   This work term connected what I had learned at university with the realities of building software for clients. I began the term focused on writing code that passed test cases. I finished it thinking more carefully about the people who use that code, what their data looks like, what they expect the system to do, and what happens if an issue is not caught.
         </p>
         <p>
-          The technical growth is real, and this coop really showed me the real world application of the skills I have been learning. I am grateful for the mentorship and support I received, and I am excited to carry these lessons into my next term.
-        </p>
+My technical skills grew, but the larger lesson was learning how those skills work together in a real business environment. I am grateful for the mentorship, feedback, and trust I received at Helios, and I look forward to applying these lessons in my next work term.        </p>
       </div>
     </div>
 
     <div class="thanks">
       <h3>Acknowledgements</h3>
       <p>
-        Thank you to the team at Helios Technology Solutions for the mentorship, the honest feedback,
-        and for trusting a first-term co-op student with work that reached real clients. Thanks also to
-        the University of Guelph Co-op office and the School of Computer Science for the support.
+ Thank you to the team at Helios Technology Solutions for their mentorship, honest feedback, and trust in a first-term co-op student whose work reached real clients. I also appreciate the support provided by the University of Guelph Co-op Office and the School of Computer Science.
       </p>
     </div>
   </section>
