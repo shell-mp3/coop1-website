@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Co-op Work Term Report — Shopify Developer, Helios Technology Solutions</title>
+<meta name="description" content="Co-op work term report by Shelly, Computer Science Honours Co-op at the University of Guelph, on a Shopify Developer placement at Helios Technology Solutions." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#06182B;
+    --navy-800:#0C2740;
+    --navy-600:#1B4C77;
+    --ink:#0E2136;
+    --slate:#5A7186;
+    --mist:#E9EEF3;
+    --paper:#FFFFFF;
+    --sun:#F2A20C;
+    --sun-soft:#FFF3DA;
+    --leaf:#1E8E72;
+    --rust:#C25A3A;
+
+    --measure:63ch;
+    --rail:clamp(1.25rem,5vw,4.5rem);
+    --step:clamp(3.5rem,7vw,6.5rem);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:clamp(1rem,.96rem + .2vw,1.075rem);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;
+    font-weight:800;
+    letter-spacing:-.02em;
+    line-height:1.04;
+    margin:0;
+  }
+  h1{font-size:clamp(2.6rem,1.4rem + 5vw,5rem)}
+  h2{font-size:clamp(1.9rem,1.2rem + 2.6vw,3.1rem)}
+  h3{font-size:1.2rem;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+  p{margin:0 0 1.1rem}
+  a{color:inherit}
+  .wrap{max-width:76rem;margin-inline:auto;padding-inline:var(--rail)}
+  .prose{max-width:var(--measure)}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.82em}
+
+  :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:2px}
+  .skip{position:absolute;left:-999px}
+  .skip:focus{left:1rem;top:1rem;z-index:99;background:var(--paper);color:var(--ink);padding:.6rem 1rem;border-radius:6px}
+
+  /* ---------- header / hero ---------- */
+  .hero{
+    background-color:var(--navy-900);
+    background-image:
+      linear-gradient(180deg, rgba(6,24,43,.4) 0%, rgba(6,24,43,.55) 45%, var(--navy-900) 100%),
+      url('workteamatescaperoom.jpg');
+    background-size:cover;
+    background-position:center 30%;
+    background-repeat:no-repeat;
+    color:#E8F0F7;
+    position:relative;
+    overflow:hidden;
+    padding-bottom:var(--step);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-28vw;right:-14vw;
+    width:64vw;height:64vw;
+    background:radial-gradient(circle,rgba(242,162,12,.28) 0%,rgba(242,162,12,.06) 42%,transparent 68%);
+    pointer-events:none;
+  }
+  .hero > *{position:relative}
+  .topbar{
+    display:flex;flex-wrap:wrap;gap:1rem 2rem;
+    align-items:baseline;justify-content:space-between;
+    padding-block:1.5rem;
+    border-bottom:1px solid rgba(232,240,247,.14);
+  }
+  .sig{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+  .topnav{display:flex;gap:1.4rem;font-size:.92rem}
+  .topnav a{color:rgba(232,240,247,.72);text-decoration:none;padding-block:.2rem}
+  .topnav a:hover{color:var(--sun)}
+
+  .hero-inner{padding-top:clamp(3rem,7vw,5.5rem)}
+  .dateline{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.82rem;color:var(--sun);
+    margin:0 0 1.4rem;
+    text-shadow:0 2px 10px rgba(0,0,0,.55);
+  }
+  .hero h1{max-width:24ch;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+  .hero-lede{
+    max-width:56ch;margin-top:1.6rem;
+    font-size:clamp(1.05rem,1rem + .4vw,1.22rem);
+    color:rgba(232,240,247,.9);
+    text-shadow:0 2px 10px rgba(0,0,0,.55);
+  }
+  .byline{
+    margin-top:2rem;padding-top:1.4rem;
+    border-top:1px solid rgba(232,240,247,.3);
+    display:flex;flex-wrap:wrap;gap:1.2rem 2.6rem;
+    font-size:.9rem;color:rgba(232,240,247,.78);
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+  }
+  .byline b{display:block;color:#fff;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+
+  /* ---------- sections ---------- */
+  section{padding-block:var(--step)}
+  .kicker{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.8rem;color:var(--navy-600);
+    margin:0 0 .9rem;
+  }
+  .band{background:var(--mist)}
+  .band-dark{background:var(--navy-900);color:#E8F0F7}
+  .band-dark .kicker{color:var(--sun)}
+  .band-dark h2,.band-dark h3{color:#fff}
+
+  .split{display:grid;gap:clamp(1.6rem,4vw,3.4rem);grid-template-columns:1fr}
+  @media(min-width:56rem){.split{grid-template-columns:1.15fr .85fr;align-items:start}}
+
+  .pull{
+    border-left:3px solid var(--sun);
+    padding:.2rem 0 .2rem 1.3rem;
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:600;font-size:1.35rem;line-height:1.35;letter-spacing:-.01em;
+    margin:0;
+  }
+  .pull cite{display:block;margin-top:.9rem;font:400 .85rem/1.5 "IBM Plex Sans",sans-serif;color:var(--slate);font-style:normal}
+
+  /* goals */
+  .goals{margin-top:2.6rem;border-top:1px solid rgba(14,33,54,.14)}
+  .goal{
+    display:grid;gap:.4rem 2rem;
+    padding:1.5rem 0;
+    border-bottom:1px solid rgba(14,33,54,.14);
+  }
+  @media(min-width:48rem){.goal{grid-template-columns:16rem 1fr 9rem}}
+  .goal h3{margin:0}
+  .goal p{margin:0;max-width:52ch;color:#28405A}
+  .status{
+    font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+    align-self:start;white-space:nowrap;
+  }
+  .status.met{color:var(--leaf)}
+  .status.part{color:var(--rust)}
+  .tools{margin-top:.5rem;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--slate)}
+
+  /* work */
+  .job{margin-top:2.4rem;display:grid;gap:2.2rem}
+  @media(min-width:60rem){.job{grid-template-columns:repeat(3,1fr);gap:2.6rem}}
+  .job article h3{margin-bottom:.7rem}
+  .job article p{color:#28405A;font-size:.98rem}
+  .job article::before{
+    content:"";display:block;width:2.2rem;height:3px;
+    background:var(--sun);margin-bottom:1.1rem;
+  }
+
+  figure{margin:clamp(2.5rem,6vw,4rem) 0 0}
+  figure svg{width:100%;height:auto;display:block}
+  figure img{width:100%;height:auto;display:block;border-radius:10px}
+  figcaption{margin-top:1rem;font-size:.85rem;color:var(--slate);max-width:58ch}
+
+  .proof{
+    display:flex;flex-wrap:wrap;gap:1.8rem;align-items:flex-start;
+    margin-top:2.6rem;padding-top:2.2rem;
+    border-top:1px solid rgba(14,33,54,.14);
+  }
+  .proof img{width:100%;max-width:22rem;height:auto;display:block;border-radius:10px;box-shadow:0 8px 24px rgba(14,33,54,.18)}
+  .proof .prose{flex:1 1 24rem}
+
+  /* reflection */
+  .reflect{margin-top:2.6rem;display:grid;gap:2rem}
+  @media(min-width:60rem){.reflect{grid-template-columns:repeat(3,1fr);gap:2.8rem}}
+  .reflect h3{margin-bottom:.7rem}
+  .reflect p{color:rgba(232,240,247,.78);font-size:.98rem}
+  .reflect span{
+    font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+    color:var(--sun);display:block;margin-bottom:.8rem;
+  }
+
+  /* conclusion */
+  .end h2{max-width:16ch}
+  .thanks{
+    margin-top:var(--step);padding-top:2rem;
+    border-top:1px solid rgba(14,33,54,.14);
+  }
+  .thanks p{max-width:var(--measure);color:#28405A}
+
+  footer{
+    background:var(--navy-900);color:rgba(232,240,247,.6);
+    font-size:.88rem;padding-block:2.2rem;
+  }
+  .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+  footer a{color:rgba(232,240,247,.6)}
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="sig">Shelly · Work Term Report</span>
+      <nav class="topnav" aria-label="Sections">
+        <a href="#employer">Employer</a>
+        <a href="#goals">Goals</a>
+        <a href="#job">The work</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap hero-inner">
+    <p class="dateline">Summer 2026 · Toronto, Ontario · Shopify Developer</p>
+    <h1>Co-op Work Term Report: Shopify Developer at Helios Technology Solutions</h1>
+    <p class="hero-lede">
+      I spent my first co-op term at Helios Technology Solutions moving product catalogues
+      between commerce systems, writing Shopify tooling, and talking to the store owners on
+      the other end of it. If you take one thing from this page, take this: almost everything
+      I learned started with data that did not look the way I expected.
+    </p>
+    <div class="byline">
+      <span><b>Shelly</b>Computer Science Honours Co-op, University of Guelph</span>
+      <span><b>Helios Technology Solutions</b>Shopify Developer, 4-month term</span>
+      <span><b>Worked with</b>Python, Pandas, GraphQL, and AI models for data verification</span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section id="employer" class="wrap">
+    <p class="kicker">The employer</p>
+    <div class="split">
+      <div class="prose">
+        <h2>Helios; one of Shopify's retail launch partners</h2>
+        <p>
+          Helios Technology Solutions supports data migration for businesses looking to move from a legacy POS system to
+          Shopify. They support the point of sale, inventory, product catalogues, and the
+          integrations that come with POS transfer. The computing side of the company is mostly
+          applied software engineering. It;s a small team, and I was one of two co-op students on it. The work was fast paced and client facing, and I learned a lot about what it means to ship code that is used by real people.
+        </p>
+        <p>
+        </p>
+      </div>
+      <blockquote class="pull">
+        Data migration was the minimum. The job was making something a merchant could trust on
+        their opening day with Shopify.
+        <cite>What I would tell a student starting the same placement</cite>
+      </blockquote>
+    </div>
+
+    <figure>
+      <img src="heliosjobfairstand.jpg" alt="Helios Technology Solutions' booth at a technology and trade expo, staffed with monitors demoing the company's systems." />
+    </figure>
+  </section>
+
+  <section id="goals" class="band">
+    <div class="wrap">
+      <p class="kicker">Goals and learning outcomes</p>
+      <h2 class="prose">What I set out to get better at, and where I actually landed</h2>
+      <p class="prose" style="margin-top:1.2rem;color:#28405A">
+        I wrote these four goals in my first week, before I knew what the work would look like.
+        Three of them survived contact with the job. One turned out to be harder than I planned for.
+      </p>
+
+      <div class="goals">
+        <div class="goal">
+          <h3>Work in real production code</h3>
+          <p>
+            I wanted to stop building everything from an empty file. Reading someone else's
+            codebase, following its conventions, and changing it without breaking what was already
+            working is a different skill than starting fresh, and it is the one I had the least
+            practice with.
+            <span class="tools">Python · Pandas · GraphQL</span>
+          </p>
+          <span class="status met">Met</span>
+        </div>
+
+        <div class="goal">
+          <h3>Diagnose problems I had not seen before</h3>
+          <p>
+            School problems come with the failure mode attached. I wanted to get comfortable with
+            bugs where nobody knows the cause yet, including the part where you check your own
+            assumptions before blaming the system.
+            <span class="tools">Debugging · Testing · Data inspection</span>
+          </p>
+          <span class="status met">Met</span>
+        </div>
+
+        <div class="goal">
+          <h3>Explain technical work to non-technical people</h3>
+          <p>
+            This was the goal I was least sure about. It turned into the most useful one. Client
+            calls forced me to drop jargon, check that the person actually followed me, and end
+            with a clear next step rather than a clever explanation.
+            <span class="tools">Client support · Training · Documentation</span>
+          </p>
+          <span class="status met">Met</span>
+        </div>
+
+        <div class="goal">
+          <h3>Design software, not just make it work</h3>
+          <p>
+            I got much better at delivering a working fix. I am still learning to step back and
+            ask whether the structure around that fix is right, and to write tests before the bug
+            arrives rather than after. This is the goal I am carrying into my next term.
+            <span class="tools">Architecture · Testing discipline</span>
+          </p>
+          <span class="status part">Partly met</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="job" class="wrap">
+    <p class="kicker">The work</p>
+    <h2 class="prose">Mostly migration and verification, some building</h2>
+    <p class="prose" style="margin-top:1.2rem;color:#28405A">
+      If I had to weigh the term by hours, most of it was not writing new features. It was moving
+      product data between systems and then proving that the move had actually worked.
+    </p>
+
+    <div class="job">
+      <article>
+        <h3>Migrating and verifying catalogue data</h3>
+        <p>
+          This was my main project. I used Python and Pandas to reshape large product exports,
+          GraphQL to write the results into Shopify, and AI models to help catch what a manual pass
+          would miss: mismatched categories, near-duplicate SKUs, prices that had drifted from the
+          source of truth. The transform was the easy half. Proving a few thousand rows had landed
+          correctly, and flagging the ones that hadn't, was the part that actually took the term.
+        </p>
+        <p>
+          The lesson was that migration is not copying fields. It is discovering, one broken row at
+          a time, which business rules were living in someone's head instead of in the data.
+        </p>
+      </article>
+      <article>
+        <h3>Getting stores ready to open</h3>
+        <p>
+          I answered client questions, traced setup issues, and walked people through Shopify POS
+          workflows before launch. A lot of these were not bugs. They were a gap between what the
+          system did and what the person expected it to do.
+        </p>
+        <p>
+          Sitting in that gap regularly is the fastest way I have found to learn what usable
+          actually means.
+        </p>
+      </article>
+      <article>
+        <h3>Contributing to an existing Shopify app</h3>
+        <p>
+          Alongside the migration work, I spent some time inside an app the team had already
+          built, using Shopify's Admin GraphQL API. Most of that time went into reading code rather
+          than writing it: finding the pattern the codebase already used, then matching it.
+        </p>
+        <p>
+          It was a smaller slice of the term, but the first time I cared whether my change would
+          confuse the next person who opened the file.
+        </p>
+      </article>
+    </div>
+
+    <figure>
+      <svg viewBox="0 0 900 420" role="img" aria-labelledby="mapTitle mapDesc">
+        <title id="mapTitle">Field mapping diagram from a legacy export to a Shopify product record</title>
+        <desc id="mapDesc">Seven source columns on the left connect by curved lines to five destination fields on the right. Two connections are flagged: one column splits into two fields, and one has no source and must be generated.</desc>
+
+        <text x="14" y="26" font-family="IBM Plex Mono, monospace" font-size="13" fill="#5A7186">legacy export</text>
+        <text x="640" y="26" font-family="IBM Plex Mono, monospace" font-size="13" fill="#5A7186">shopify product</text>
+
+        <g font-family="IBM Plex Mono, monospace" font-size="13.5" fill="#0E2136">
+          <rect x="10" y="48" width="250" height="38" rx="7" fill="#E9EEF3"/><text x="26" y="72">item_name</text>
+          <rect x="10" y="96" width="250" height="38" rx="7" fill="#E9EEF3"/><text x="26" y="120">price_str</text>
+          <rect x="10" y="144" width="250" height="38" rx="7" fill="#E9EEF3"/><text x="26" y="168">size</text>
+          <rect x="10" y="192" width="250" height="38" rx="7" fill="#E9EEF3"/><text x="26" y="216">wt</text>
+          <rect x="10" y="240" width="250" height="38" rx="7" fill="#E9EEF3"/><text x="26" y="264">live_flag</text>
+          <rect x="10" y="288" width="250" height="38" rx="7" fill="#E9EEF3"/><text x="26" y="312">qty_on_hand</text>
+          <rect x="10" y="336" width="250" height="38" rx="7" fill="#FFF3DA" stroke="#F2A20C" stroke-dasharray="4 4"/><text x="26" y="360" fill="#8A5A00">(no source)</text>
+        </g>
+
+        <g fill="none" stroke="#1B4C77" stroke-width="2">
+          <path d="M266 67 C 420 67, 480 67, 634 67"/>
+          <path d="M266 115 C 420 115, 480 163, 634 163"/>
+          <path d="M266 163 C 420 163, 480 211, 634 211"/>
+          <path d="M266 211 C 420 211, 480 211, 634 211" stroke-dasharray="5 4"/>
+          <path d="M266 259 C 420 259, 480 259, 634 259"/>
+          <path d="M266 307 C 420 307, 480 307, 634 307" stroke="#C25A3A"/>
+        </g>
+        <path d="M266 355 C 420 355, 480 115, 634 115" fill="none" stroke="#F2A20C" stroke-width="2" stroke-dasharray="5 4"/>
+
+        <g font-family="IBM Plex Mono, monospace" font-size="13.5" fill="#0E2136">
+          <rect x="640" y="48" width="250" height="38" rx="7" fill="#06182B"/><text x="656" y="72" fill="#FFFFFF">title</text>
+          <rect x="640" y="96" width="250" height="38" rx="7" fill="#06182B"/><text x="656" y="120" fill="#FFFFFF">handle</text>
+          <rect x="640" y="144" width="250" height="38" rx="7" fill="#06182B"/><text x="656" y="168" fill="#FFFFFF">variants.price</text>
+          <rect x="640" y="192" width="250" height="38" rx="7" fill="#06182B"/><text x="656" y="216" fill="#FFFFFF">variants.sku</text>
+          <rect x="640" y="240" width="250" height="38" rx="7" fill="#06182B"/><text x="656" y="264" fill="#FFFFFF">status</text>
+          <rect x="640" y="288" width="250" height="38" rx="7" fill="#06182B"/><text x="656" y="312" fill="#FFFFFF">inventory</text>
+        </g>
+
+        <circle cx="880" cy="307" r="5" fill="#C25A3A"/>
+        <text x="640" y="352" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#C25A3A">held: negative stock</text>
+        <text x="300" y="398" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8A5A00">handle has no source column, it has to be generated and checked for collisions</text>
+      </svg>
+      <figcaption>
+        A mapping sketch of the kind I drew before writing any transform code. The interesting
+        columns are never the ones that line up. They are the field with no source, the one that
+        splits into two, and the one carrying a value the destination will refuse.
+      </figcaption>
+    </figure>
+
+    <div class="proof">
+      <img src="googlereviewigot.png" alt="A five-star Google review for Helios Technology Solutions, thanking Shelly by name for helping move a retail store from an outdated system to Shopify." />
+      <div class="prose">
+        <p>
+          This review was so nice to receive. It showed me my work was making a real impact for
+          the people on the other end of it, and I loved getting to connect directly with
+          merchants during the term.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reflection" class="band-dark">
+    <div class="wrap">
+      <p class="kicker">Reflection</p>
+      <h2 class="prose">Three habits I did not have in April</h2>
+
+      <div class="reflect">
+        <article>
+          <span>01</span>
+          <h3>I look at the data before I write the code</h3>
+          <p>
+            My instinct used to be to start typing. Now I open the file first, sort it, count the
+            nulls, and look for the rows that break the shape I assumed. Most of my worst bugs on
+            this term were assumptions I could have checked in two minutes.
+          </p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>I explain things in the listener's terms</h3>
+          <p>
+            On a client call, being right is not the goal. Being understood is. I learned to name
+            things the way the store owner names them, check that I was actually followed, and
+            finish with the one thing they need to do next.
+          </p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>I treat tools as one system, not separate subjects</h3>
+          <p>
+            An API, a dataframe, an AI model, and a browser console stopped feeling like four
+            unrelated courses. Moving between them to chase a single problem is now normal, and
+            that confidence is probably the most transferable thing I am taking with me.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="conclusion" class="wrap end">
+    <p class="kicker">Conclusion</p>
+    <div class="split">
+      <h2>If you remember one thing</h2>
+      <div class="prose">
+        <p>
+          This term connected what I learned at Uni to the real world. I came in able to write code that
+          passed a test case and left thinking about the person on the other side of it: what their
+          data actually looks like, what they will assume, and what breaks for them if I do not check my work.
+        </p>
+        <p>
+          The technical growth is real, and this coop really showed me the real world application of the skills I have been learning. I am grateful for the mentorship and support I received, and I am excited to carry these lessons into my next term.
+        </p>
+      </div>
+    </div>
+
+    <div class="thanks">
+      <h3>Acknowledgements</h3>
+      <p>
+        Thank you to the team at Helios Technology Solutions for the mentorship, the honest feedback,
+        and for trusting a first-term co-op student with work that reached real clients. Thanks also to
+        the University of Guelph Co-op office and the School of Computer Science for the support.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Co-op Work Term Report · Bachelor of Computing · University of Guelph</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+</body>
+</html>
